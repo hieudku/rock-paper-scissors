@@ -1,45 +1,45 @@
-let playerSelection;
-let computerSelection;
-let arr = ['rock','paper','scissor'];
+function playerSelection() {
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click' , () => {
+        let playerChoice = button.id;
+        console.log(`Player's turn: ` + playerChoice);
+        computerSelection();
+        return playerChoice;
+    });
+});
+}
+function computerSelection() {
+    let arr = ['rock','paper','scissor'];
+    let computerChoice = arr[Math.floor(Math.random() * arr.length)];
+    console.log(`Computer's turn: ` + computerChoice);
+    return computerChoice;
+}
 let playerWinsTally = 0;
 let computerWinsTally = 0;
 let draws = 0;
-const n = 5;
-for (let i = 1; i <= n; i++) { //For loop 5 times.
-    playerSelection = prompt("what is your move?");
-    computerSelection = getRandom(arr);
-    alert(`computer: ` + computerSelection);
-    alert(result());
-    scoreCount();
-    console.log(`*player*: ` + playerSelection, `*computer*: ` + computerSelection);
-} //End of loop function.
-    result();
-    winnerLoser();
-function getRandom(arr) { //Choose random from array.
-        return arr[Math.floor(Math.random() * arr.length)];
-    } //End of random pick function.
-function result() {
-        if (playerSelection == computerSelection) { 
+function playRound() { //Outcome of each turn.
+        if (playerSelection() == computerChoice) { 
             return 'draw';
         }
-            else if (playerSelection == 'rock' && computerSelection == 'scissor') {  
+            else if (playerSelection() == 'rock' && computerChoice == 'scissor') {  
                     return 'playerWins';
             }
-                else if(playerSelection == 'paper' && computerSelection == 'rock') { 
+                else if(playerSelection() == 'paper' && computerChoice == 'rock') { 
                     return 'playerWins';
             }
-                else if(playerSelection == 'scissor' && computerSelection == 'paper') { 
+                else if(playerSelection() == 'scissor' && computerChoice == 'paper') { 
                     return 'playerWins';
             }
                     else {
                         return 'computerWins';
                     }
 } //End of result function.
-function scoreCount() {
-    if (result() == 'playerWins') {
+function scoreCount() { //Add scores to winner each round.
+    if (playRound() == 'playerWins') {
         return ++playerWinsTally;
     }
-        else if (result() == 'computerWins') {
+        else if (playRound() == 'computerWins') {
             return ++computerWinsTally;
         }
             else {
@@ -47,7 +47,8 @@ function scoreCount() {
             }
 } //End of scores counting function.
 
-function winnerLoser() {
+
+function winnerLoser() { //Compare and decide winner after n games.
     if (playerWinsTally > computerWinsTally) {
         alert(`Player wins!`);
     }
@@ -57,8 +58,6 @@ function winnerLoser() {
             else {
                 alert(`Draw!`);
             }
-            console.log(`player: ` + playerWinsTally, `computer : ` + computerWinsTally);
-} //End of winner decide function.
-
-            
+}
+playerSelection();
 
