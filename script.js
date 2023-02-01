@@ -6,16 +6,15 @@ let playerChoice = document.querySelectorAll('button');
     button.addEventListener('click' , () => {
         let playerSelection = button.id;
         playerChoice = playerSelection;
-        console.log(`Player's turn: ` + playerChoice);
-        
+            document.getElementById("playerChoiceDisplay").innerHTML = "You chose: " + playerChoice;
+
         let computerSelection = getRandom()
         computerChoice = computerSelection;
-        console.log(`Computer's turn: ` + computerChoice);
-
+            document.getElementById("computerChoiceDisplay").innerHTML = "Computer chose: " + computerChoice;
         outcome(playerChoice, computerChoice);
         scoreCount();
-        console.log(`player: ` + playerWinsTally)
-        console.log(`computer: ` + computerWinsTally)
+            document.getElementById("playerScore").innerHTML = "Your score: " + playerWinsTally;
+            document.getElementById("computerScore").innerHTML = "Computer's score: " + computerWinsTally;
         winnerLoser(playerWinsTally, computerWinsTally);
     });
 });
@@ -26,23 +25,23 @@ function getRandom(arr) { //Choose random from array.
 }
 function outcome(playerChoice, computerChoice) {
         if (playerChoice == computerChoice) { 
-            console.log('Draw!');
+            document.getElementById("outCome").innerHTML = "It's a draw!";
             return 'draw';
         }
             else if (playerChoice == 'rock' && computerChoice == 'scissor') {  
-                console.log('Player wins this round!');
+                document.getElementById("outCome").innerHTML = "You win this round!";
                     return 'playerWins';
             }
                 else if(playerChoice == 'paper' && computerChoice == 'rock') { 
-                    console.log('Player wins this round!');
+                    document.getElementById("outCome").innerHTML = "You win this round!";
                     return 'playerWins';
             }
                 else if(playerChoice == 'scissor' && computerChoice == 'paper') { 
-                    console.log('Player wins this round!');
+                    document.getElementById("outCome").innerHTML = "You win this round!";
                     return 'playerWins';
             }
                     else {
-                        console.log('Computer wins this round!')
+                        document.getElementById("outCome").innerHTML = "Computer wins this round!";
                         return 'computerWins';
                     }
 }
@@ -60,23 +59,23 @@ function scoreCount() { //Add scores to winner each round.
 } //End of scores counting function.
 function winnerLoser(playerWinsTally, computerWinsTally) { //Compare and decide winner after n games.
     if (playerWinsTally == 5) {
-        console.log("You wins!")
+        document.getElementById("finalResult").innerHTML = "YOU WON! You have saved humanity from AI Overlords!";
         return 'You wins!'
     }
         else if (computerWinsTally == 5) {
-            console.log("Computer wins!")
+            document.getElementById("finalResult").innerHTML = "COMPUTER WON! Humanity has been defeated by AI!";
             return 'Computer wins!'
         }
         else if (playerWinsTally > computerWinsTally) {
-            console.log("You are leading!")
-            return 'You are winning!'
+            document.getElementById("finalResult").innerHTML = "You are leading! Go human!";
+            return 'You are leading!'
         }
         else if(computerWinsTally > playerWinsTally) {
-            console.log("Computer is leading!")
+            document.getElementById("finalResult").innerHTML = "Computer is leading! Go AI!";
             return 'Computer is leading!'
         }
             else if (playerWinsTally == computerWinsTally) {
-                console.log("Draws!")
+                document.getElementById("finalResult").innerHTML = "DRAW! Might as well flip a coin!";
                 return 'Draws!'
             }
 }
