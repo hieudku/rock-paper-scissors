@@ -1,0 +1,74 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: azure;
+  }
+  
+  h1 {
+    display: flex;
+    margin-top: 50px;
+    font-size: 36px;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 600px;
+    margin-top: 50px;
+  }
+  
+  button {
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px;
+    cursor: pointer;
+  }
+  
+  #rock {
+    background-color: #8B5E3C;
+    color: white;
+    background-image: url('./pictures/rock-insta-778d9e7296924ee1829c8293b7e942f6.jpg');
+    background-size: cover;
+  }
+  
+  #paper {
+    background-color: #F5F5DC;
+    color: rgb(153, 79, 39);
+    background-image: url('./pictures/paper.jpeg');
+    background-size: cover;
+  }
+  
+  #scissors {
+    background-color: #C0C0C0;
+    color: black;
+    background-image: url('./pictures/scissor-haha.png');
+    background-size: cover;
+  }
+  
+  #playerChoiceDisplay {
+    margin-top: 50px;
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  #computerChoiceDisplay {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 24px;
+    text-align: center;
+  }
+
+  #resultsDisplay {
+    margin-top: 50px;
+    font-size: 24px;
+    text-align: center;
+  }
+  
