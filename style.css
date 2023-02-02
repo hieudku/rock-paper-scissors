@@ -6,7 +6,7 @@
     background-color: white;
   }
   
-  h1 {
+  #header {
     display: flex;
     flex-direction: column;
     margin-top: 50px;
@@ -24,6 +24,10 @@
     
   }
   
+#selection {
+  display: flex;
+}
+
   button {
     width: 150px;
     height: 150px;
@@ -91,20 +95,20 @@
   
   #finalResult {
     margin-top: 50px;
+    margin-bottom: 50px;
     text-align: center;;
-    display: inline-block;
-    background-color: #fff;
-    border: 1px solid #333;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 2px 2px 5px #333;
+    display: none;
+    flex-direction: column;
     font-size: 24px;
+    justify-content: center;
+    justify-items: center;
   }
 
   #gameResult {
+    margin-top: 20px;
     display: flex;
-    flex-direction: row;
-    gap: 350px;
+    justify-content: center;
+    gap: 150px;
   }
 
   #outCome {
@@ -123,3 +127,24 @@
     margin-top: 50px;
     font-size: 50px;
   }
+
+  #resetButton {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: none;
+    flex-direction: column;
+    font-size: 16px;
+    margin: 0 auto;
+    cursor: pointer;
+    justify-content: center;  
+    
+    }
+    
+   #resetButton:hover {
+      background-color: #3E8E41;
+    }
+  
