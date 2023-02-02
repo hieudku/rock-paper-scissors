@@ -1,25 +1,27 @@
-body {
+#content {
     display: flex;
     flex-direction: column;
     align-items: center;
     font-family: Arial, sans-serif;
-    background-color: azure;
+    background-color: white;
   }
   
   h1 {
     display: flex;
+    flex-direction: column;
     margin-top: 50px;
     font-size: 36px;
     text-align: center;
     flex-wrap: wrap;
   }
   
-  .container {
+  #container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 600px;
     margin-top: 50px;
+    
   }
   
   button {
@@ -55,15 +57,30 @@ body {
   
   #playerChoiceDisplay {
     margin-top: 50px;
+    margin-bottom: 20px;
+    width: 220px;
+    text-align: center;;
+    display: inline-block;
+    background-color: #fff;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 2px 2px 5px #333;
     font-size: 24px;
-    text-align: center;
   }
   
   #computerChoiceDisplay {
     margin-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
+    width: 220px;
+    text-align: center;;
+    display: inline-block;
+    background-color: #fff;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 2px 2px 5px #333;
     font-size: 24px;
-    text-align: center;
   }
 
   #resultsDisplay {
@@ -72,3 +89,37 @@ body {
     text-align: center;
   }
   
+  #finalResult {
+    margin-top: 50px;
+    text-align: center;;
+    display: inline-block;
+    background-color: #fff;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 2px 2px 5px #333;
+    font-size: 24px;
+  }
+
+  #gameResult {
+    display: flex;
+    flex-direction: row;
+    gap: 350px;
+  }
+
+  #outCome {
+    margin-top: 20px;
+    font-size: 20px;
+  }
+
+  #playerScore {
+    font-size: 50px;
+  }
+
+  #computerScore {
+    font-size: 50px;
+  }
+  #symbols {
+    margin-top: 50px;
+    font-size: 50px;
+  }
