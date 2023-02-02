@@ -2,7 +2,6 @@
 let playerWinsTally = 0;
 let computerWinsTally = 0;
 let draws = 0;
-let rounds = 0;
 //set inital texts.
 document.getElementById("playerChoiceDisplay").innerHTML = "Human";
 document.getElementById("computerChoiceDisplay").innerHTML = "AI";
@@ -11,20 +10,21 @@ document.getElementById("finalResult").innerHTML = "Choose your weapon!";
 let playerChoice = document.querySelectorAll('button');
     playerChoice.forEach((button) => {
     button.addEventListener('click' , () => {
+        document.getElementById("gameResult").style.display = "flex";
+        document.getElementById("container").style.display = "flex";
+        document.getElementById("outCome").style.display = "inline-block";
         let playerSelection = button.id;
-        playerChoice = playerSelection;
+            playerChoice = playerSelection;
             document.getElementById("playerChoiceDisplay").innerHTML = "You chose " + playerChoice;
 
         let computerSelection = getRandom()
-        computerChoice = computerSelection;
+            computerChoice = computerSelection;
             document.getElementById("computerChoiceDisplay").innerHTML = "AI chose " + computerChoice;
-        outcome(playerChoice, computerChoice);
-        scoreCount();
-            document.getElementById("playerScore").innerHTML = playerWinsTally;
-            document.getElementById("computerScore").innerHTML = computerWinsTally;
-        winnerLoser(playerWinsTally, computerWinsTally);
-        rounds++;
-        console.log(rounds);
+            outcome(playerChoice, computerChoice);
+            scoreCount();
+                document.getElementById("playerScore").innerHTML = "Your score: " + playerWinsTally;
+            document.getElementById("computerScore").innerHTML = "AI's score: " + computerWinsTally;
+            winnerLoser(playerWinsTally, computerWinsTally);
     });
 });
 
@@ -36,7 +36,6 @@ function outcome(playerChoice, computerChoice) {
         if (playerChoice == computerChoice) { 
             document.getElementById("outCome").innerHTML = "It's a draw!";
             document.getElementById("symbols").innerHTML = "=";
-
             return 'draw';
         }
             else if (playerChoice == 'rock' && computerChoice == 'scissors') {  
@@ -62,6 +61,7 @@ function outcome(playerChoice, computerChoice) {
 }
  //End of result function.
 function scoreCount() { //Add scores to winner each round.
+    if (playerChoice, computerChoice) {
     if (outcome(playerChoice, computerChoice) == 'playerWins') {
         return playerWinsTally++;
     }
@@ -71,35 +71,46 @@ function scoreCount() { //Add scores to winner each round.
             else {
                 return draws++;
             }
+        }
 } //End of scores counting function.
 function winnerLoser(playerWinsTally, computerWinsTally) { //Compare and decide winner after n games.
+    if (playerWinsTally == 5 || computerWinsTally == 5) {
+        document.getElementById("content").style.display = "none";
+        document.getElementById("finalResult").style.display = "flex";
+        document.getElementById("resetButton").style.display = "flex";
     if (playerWinsTally == 5) {
-        document.getElementById("finalResult").innerHTML = "YOU WON! You have saved humanity from AI Overlords!";
+        document.getElementById("finalResult").innerHTML = "YOU WON! You deserve a pay rise!";
         return;
     }
         else if (computerWinsTally == 5) {
             document.getElementById("finalResult").innerHTML = "AI WON! Can I have some fries with that?";
             return;
         }
-        else if (playerWinsTally > computerWinsTally) {
-            document.getElementById("finalResult").innerHTML = "You are leading! Go human!";
-            return ;
-        }
-        else if(computerWinsTally > playerWinsTally) {
-            document.getElementById("finalResult").innerHTML = "AI is leading! Go AI!";
-            return;
-        }
-        else if (playerWinsTally == computerWinsTally) {
-            document.getElementById("finalResult").innerHTML = "Draw!";
-
-        }
             else if (playerWinsTally == computerWinsTally == 5) {
                 document.getElementById("finalResult").innerHTML = "DRAW! Might as well flip a coin..";
                 return;
             }
 }
-
-function endGame() {
-    
 }
 
+let resetGame = document.getElementById("resetButton").addEventListener("click", () => {
+    playerChoice = "Human";
+    computerChoice = "AI";
+    playerWinsTally = 0;
+    computerWinsTally = 0;
+  
+    // code to update the UI and display the message to select an option
+    document.getElementById("content").style.display = "flex";
+    document.getElementById("resetButton").style.display = "none";
+    document.getElementById("gameResult").style.display = "none";
+    document.getElementById("container").style.display = "none";
+    document.getElementById("outCome").style.display = "none";
+
+    document.getElementById("finalResult").style.display = "none";
+    document.getElementById("playerChoiceDisplay").innerHTML = "";
+    document.getElementById("computerChoiceDisplay").innerHTML = "";
+    document.getElementById("playerWins").innerHTML = "Player Wins: " + playerWinsTally;
+    document.getElementById("computerWins").innerHTML = "Computer Wins: " + computerWinsTally;
+  });
+
+    
