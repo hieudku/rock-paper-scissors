@@ -109,8 +109,6 @@ let resetGame = document.getElementById("resetButton").addEventListener("click",
     document.getElementById("finalResult").style.display = "none";
     document.getElementById("playerChoiceDisplay").innerHTML = "";
     document.getElementById("computerChoiceDisplay").innerHTML = "";
-    document.getElementById("playerWins").innerHTML = "Player Wins: " + playerWinsTally;
-    document.getElementById("computerWins").innerHTML = "Computer Wins: " + computerWinsTally;
   });
 
     
