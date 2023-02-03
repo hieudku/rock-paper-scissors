@@ -59,7 +59,7 @@ function outcome(playerChoice, computerChoice) {
                         return 'computerWins';
                     }
 }
- //End of result function.
+ //End of outcome function.
 function scoreCount() { //Add scores to winner each round.
     if (playerChoice, computerChoice) {
     if (outcome(playerChoice, computerChoice) == 'playerWins') {
